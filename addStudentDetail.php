@@ -1,5 +1,15 @@
 <?php
 session_start();
+if(!isset($_SESSION['name']))
+{
+	header("location:loginpage.php");
+}
+else
+{
+	$name=$_SESSION['name'];
+	unset($_SESSION['name']);
+	$_SESSION['name']=$name;
+}
 if(empty($_SESSION['username']))
 {
 
@@ -316,10 +326,10 @@ function f2(){
 			<div>
 				<select id="year" name="year">
 				<option value="" selected disabled>Year</option>
-				<option name="first" value="first">First</option>
-				<option name="second" value="second">Second</option>
-				<option name="third" value="third">Third</option>
-				<option name="fourth" value="fourth">Fourth</option>
+				<option name="first" value="1">First</option>
+				<option name="second" value="2">Second</option>
+				<option name="third" value="3">Third</option>
+				<option name="fourth" value="4">Fourth</option>
 				</select>
 				
 				

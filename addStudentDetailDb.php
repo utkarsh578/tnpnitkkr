@@ -1,5 +1,15 @@
 <?php
 session_start();
+if(!isset($_SESSION['name']))
+{
+	header("location:loginpage.php");
+}
+else
+{
+	$name=$_SESSION['name'];
+	unset($_SESSION['name']);
+	$_SESSION['name']=$name;
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
 	include 'db_connect.php';
@@ -59,6 +69,62 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		$branch = "";
 	}
+	if(isset($_POST["sgpa1"]))
+	{
+		$sgpa1 = $_POST["sgpa1"];
+	}
+	else
+	{
+		$sgpa1 = "";
+	}
+	if(isset($_POST["sgpa2"]))
+	{
+		$sgpa2 = $_POST["sgpa2"];
+	}
+	else
+	{
+		$sgpa2 = "";
+	}
+	if(isset($_POST["sgpa3"]))
+	{
+		$sgpa3 = $_POST["sgpa3"];
+	}
+	else
+	{
+		$sgpa3 = "";
+	}
+	if(isset($_POST["sgpa4"]))
+	{
+		$sgpa4 = $_POST["sgpa4"];
+	}
+	else
+	{
+		$sgpa4 = "";
+	}
+	if(isset($_POST["sgpa5"]))
+	{
+		$sgpa5 = $_POST["sgpa5"];
+	}
+	else
+	{
+		$sgpa5 = "";
+	}
+	if(isset($_POST["cgpa6"]))
+	{
+		$cgpa = $_POST["cgpa6"];
+	}
+	else
+	{
+		$cgpa = "";
+	}
+	if(isset($_POST["subbranch"]))
+	{
+		$subbranch = $_POST["subbranch"];
+	}
+	else
+	{
+		$subbranch = "";
+	}
 	$result = mysqli_query($con,"SELECT * FROM studentsData WHERE rollno = $rollno");
 	$count=mysqli_fetch_array($result);
 	if($count['rollno'] == $rollno)
@@ -66,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		$_SESSION["message"] = "The roll no you have entered all ready exists";
 		header("location:addStudentDetail.php");
 	}
-	$result = mysqli_query($con,"INSERT INTO studentsData (rollno,name,email,contacts,year,degree,branch) VALUES ('$rollno','$name','$email','$contacts','$year','$degree','$branch')");
+	$result = mysqli_query($con,"INSERT INTO studentsData (rollno,name,email,contacts,year,degree,branch,sgpa5,sgpa4,sgpa3,sgpa2,sgpa1,cgpa,subBranch) VALUES ('$rollno','$name','$email','$contacts','$year','$degree','$branch','$sgpa5','$sgpa4','$sgpa3',$sgpa2,'$sgpa1','$cgpa','$subbranch')");
 	if($result)
 	{
 		$_SESSION['message'] = "Student Detail Has Been Added";
