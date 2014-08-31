@@ -1,0 +1,129 @@
+<?php
+session_start();
+if(empty($_SESSION['username']))
+{
+
+}
+else {
+	header("location:index1.php");
+}
+?>
+
+<!DOCTYPE html>
+<!--[if lt IE 7 ]> <html lang="en" class="ie6 ielt8"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="ie7 ielt8"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="ie8"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+<meta charset="utf-8">
+<title>Training & Placement</title>
+<link rel="stylesheet" type="text/css" href="addStudentDetail.css" />
+<script>
+function f1(){
+
+	var degree=document.getElementById("degree").value;
+	var select = document.getElementById("branch");
+	document.getElementById('branch').innerHTML = "";
+	
+	if(degree == 'B.Tech'){
+	var option1 = document.createElement('option');
+	option1.text = option1.value = 'Computer';
+    select.add(option1, 0);
+	
+	var option2 = document.createElement('option');
+	option2.text = option2.value = 'IT';
+    select.add(option2, 1);
+	
+	var option3 = document.createElement('option');
+	option3.text = option3.value = 'Civil';
+    select.add(option3, 2);
+	
+	var option4 = document.createElement('option');
+	option4.text = option4.value = 'Mechanical';
+    select.add(option4, 3);
+	
+	var option5 = document.createElement('option');
+	option5.text = option5.value = 'Electronics';
+    select.add(option5, 4);
+	
+	var option6 = document.createElement('option');
+	option6.text = option6.value = 'Electrical';
+    select.add(option6, 5);
+	
+	var option7 = document.createElement('option');
+	option7.text = option7.value = 'IEM';
+    select.add(option7, 6);
+	}
+	else
+	{
+		var option8 = document.createElement('option');
+		option8.text = option8.value = degree;
+		select.add(option8, 0);
+	}
+	
+}
+</script>
+</head>
+<body>
+<?php
+	if (isset($_SESSION['message'])) {
+		echo $_SESSION['message'];
+		unset($_SESSION['message']);
+	}
+
+ ?>
+ 
+<div class="container">
+<img src="nitlogo.png" style="height:100px; width:100px; position:absolute; top:-12px; left:-160px;"/>
+	<section id="content">
+		<form action="addStudentDetailDb.php" method="post">
+			<h1>Student Details</h1>
+			<div>
+				<input type="text" placeholder="Roll No" required name="rollno" />
+			</div>
+			<div>
+				<input type="text" placeholder="Name" name="name" required/>
+			</div>
+			<div>
+				<input type="text" placeholder="E-mail" name="email"/>
+			</div>
+			
+			<div>
+				<input type="text" placeholder="Contact"  name="contacts"/>
+			</div>
+			<br>
+			<div>
+				<select id="year" name="year">
+				<option value="" selected disabled>Year</option>
+				<option name="first" value="first">First</option>
+				<option name="second" value="second">Second</option>
+				<option name="third" value="third">Third</option>
+				<option name="fourth" value="fourth">Fourth</option>
+				</select>
+				
+				
+				<select name="degree" id="degree" onchange='f1()'>
+					<option value="" selected disabled>Degree</option>
+  					<option value="B.Tech">B.Tech</option>
+  					<option value="M.Tech">M.Tech</option>
+  					<option value="MCA">MCA</option>
+  					<option value="MBA">MBA</option>
+  					<option value="Bio Medical">Bio Medical</option>
+				</select>
+				
+				<select name="branch" id="branch">
+				<option value="" selected disabled>Branch</option>
+				</select>
+				
+			</div>
+			<br>
+			<div>
+				<input type="submit" value="Submit" />
+			</div>
+		</form><!-- form -->
+		
+	</section><!-- content -->
+</div><!-- container -->
+
+</body>
+</html>
