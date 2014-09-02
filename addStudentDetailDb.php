@@ -132,10 +132,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		$_SESSION["message"] = "The roll no you have entered all ready exists";
 		header("location:addStudentDetail.php");
 	}
-	$result = mysqli_query($con,"INSERT INTO studentsData (rollno,name,email,contacts,year,degree,branch,sgpa5,sgpa4,sgpa3,sgpa2,sgpa1,cgpa,subBranch) VALUES ('$rollno','$name','$email','$contacts','$year','$degree','$branch','$sgpa5','$sgpa4','$sgpa3',$sgpa2,'$sgpa1','$cgpa','$subbranch')");
+	$result = mysqli_query($con,"INSERT INTO studentsData (rollno,name,email,contacts,year,degree,branch,sgpa5,sgpa4,sgpa3,sgpa2,sgpa1,cgpa,subBranch) VALUES ('$rollno','$name','$email','$contacts','$year','$degree','$branch','$sgpa5','$sgpa4','$sgpa3','$sgpa2','$sgpa1','$cgpa','$subbranch')");
 	if($result)
 	{
-		$_SESSION['message'] = "Student Detail Has Been Added";
+		$_SESSION['message'] = "Student Detail of Roll no ".$rollno." Has Been Added";
 		header("location:addStudentDetail.php");
 	}
 	else

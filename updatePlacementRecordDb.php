@@ -50,10 +50,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	
 	$companyName = $count['companyName'];
 	$result = mysqli_query($con,"UPDATE company SET studentHired = '$totalHired' WHERE id = '$companyId'");
-	$companyname = "companyName".$flag;
+	$companyname = "companyName".$offer;
 	$noOfOffers = $flag+1;
-	echo $companyname." ".$flag ;
-	//return;
+
 	$result = mysqli_query($con,"UPDATE studentsData SET placementStatus = '$offer', $companyname = '$companyId', noOfOffers = '$noOfOffers'   WHERE id = '$studentId'");
 
 	$result = mysqli_query($con,"INSERT INTO studentPlaced (companyId,studentId) VALUES ('$companyId','$studentId')");

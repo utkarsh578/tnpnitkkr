@@ -1,6 +1,5 @@
 <?php
 session_start();
-
 if(!isset($_SESSION['name']))
 {
 	header("location:loginpage.php");
@@ -28,6 +27,6 @@ for($i=1;$i<=$count;$i++)
 mysqli_query($con,"DELETE FROM Company where id=".$id);
 mysqli_close($con);
 $_SESSION['action']=2;
-header("location:http://localhost/tnp/viewcompany.php");
+header("location:viewcompany.php");
 
 ?>

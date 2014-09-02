@@ -1,5 +1,15 @@
 <?php
 session_start();
+if(!isset($_SESSION['name']))
+{
+	header("location:loginpage.php");
+}
+else
+{
+	$name=$_SESSION['name'];
+	unset($_SESSION['name']);
+	$_SESSION['name']=$name;
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
 	$attendance = "";
@@ -38,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		$attendance = "";
 		$rollno = $_POST["rollno1"];
-		echo $rollno;
+		//echo $rollno;
 		$result = mysqli_query($con,"SELECT * FROM studentsData WHERE rollno = '$rollno'");
 		$count = mysqli_fetch_array($result);
 
@@ -54,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 			$count = mysqli_fetch_array($result);
 			$found = $_POST["rollno1"];
 		if(empty($count['id'])){
-			echo "inside count ";
+			//echo "inside count ";
 			$a = $companyId;
 			$b = $studentId;
 			$c = $date;
@@ -70,7 +80,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 			$noOfDays = $count1['noOfDays'];
 			$date1=date_create($date);
 			date_add($date1,date_interval_create_from_date_string("0 days"));
-			$attendance = $attendance.",".date_format($date1,"d-m");
+			$dateTemp = date_format($date1,"d-m");
+			if(strstr($attendance, $dateTemp)!=0)
+			{
+				echo "found";
+			}
+			else
+			{
+				$attendance = $attendance.",".date_format($date1,"d-m");
+				echo "not found";
+			}
 			
 			if(empty($count['rollno']))
 			{
@@ -93,23 +112,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		$attendance = "";
 		$rollno = $_POST["rollno2"];
-		echo $rollno;
+		//echo $rollno;
 		$result = mysqli_query($con,"SELECT * FROM studentsData WHERE rollno = '$rollno'");
 		$count = mysqli_fetch_array($result);
 
 		if(empty($count['id']))
 		{
 		$flag = 1;
-		$notFound = $_POST["rollno2"];
+		$notFound = $notFound."<br>".$_POST["rollno2"];
 		}
 		else
 		{
 			$studentId = $count['id'];
 			$result = mysqli_query($con,"SELECT * FROM studentCompanyAttended WHERE studentId = '$studentId' AND companyId = '$companyId'");
 			$count = mysqli_fetch_array($result);
-			$found = $_POST["rollno2"];
+			$found = $found."<br>".$_POST["rollno2"];
 		if(empty($count['id'])){
-			echo "string companyId = ".$companyId."studentId = ".$studentId."date = ".$date;
 			$result = mysqli_query($con,"INSERT INTO studentCompanyAttended (companyId,studentId,dateCompany) VALUES ('$companyId','$studentId','$date')");
 			$result = mysqli_query($con,"SELECT * FROM attendance WHERE rollno = '$rollno'");
 			$count = mysqli_fetch_array($result);
@@ -122,7 +140,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 			$noOfDays = $count1['noOfDays'];
 			$date2=date_create($date);
 			date_add($date2,date_interval_create_from_date_string("0 days"));
-			$attendance = $attendance.",".date_format($date2,"d-m");
+			$dateTemp = date_format($date2,"d-m");
+			if(strstr($attendance, $dateTemp)!=0)
+			{
+				
+			}
+			else
+			{
+				$attendance = $attendance.",".date_format($date2,"d-m");
+				
+			}
+			//return;
+			//$attendance = $attendance.",".date_format($date2,"d-m");
 			
 			if(empty($count['rollno']))
 			{
@@ -145,23 +174,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		$attendance = "";
 		$rollno = $_POST["rollno3"];
-		echo $rollno;
+		//echo $rollno;
 		$result = mysqli_query($con,"SELECT * FROM studentsData WHERE rollno = '$rollno'");
 		$count = mysqli_fetch_array($result);
 
 		if(empty($count['id']))
 		{
 		$flag = 1;
-		$notFound = $_POST["rollno3"];
+		$notFound = $notFound."<br>".$_POST["rollno3"];
 		}
 		else
 		{
 			$studentId = $count['id'];
 			$result = mysqli_query($con,"SELECT * FROM studentCompanyAttended WHERE studentId = '$studentId' AND companyId = '$companyId'");
 			$count = mysqli_fetch_array($result);
-			$found = $_POST["rollno3"];
+			$found = $found."<br>".$_POST["rollno3"];
 		if(empty($count['id'])){
-			echo "string companyId = ".$companyId."studentId = ".$studentId."date = ".$date;
+			//echo "string companyId = ".$companyId."studentId = ".$studentId."date = ".$date;
 			$result = mysqli_query($con,"INSERT INTO studentCompanyAttended (companyId,studentId,dateCompany) VALUES ('$companyId','$studentId','$date')");
 			$result = mysqli_query($con,"SELECT * FROM attendance WHERE rollno = '$rollno'");
 			$count = mysqli_fetch_array($result);
@@ -174,7 +203,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 			$noOfDays = $count1['noOfDays'];
 			$date3=date_create($date);
 			date_add($date3,date_interval_create_from_date_string("0 days"));
-			$attendance = $attendance.",".date_format($date3,"d-m");
+			$dateTemp = date_format($date3,"d-m");
+			if(strstr($attendance, $dateTemp)!=0)
+			{
+				
+			}
+			else
+			{
+				$attendance = $attendance.",".date_format($date3,"d-m");
+				
+			}
 			
 			if(empty($count['rollno']))
 			{
@@ -197,23 +235,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		$attendance = "";
 		$rollno = $_POST["rollno4"];
-		echo $rollno;
+		//echo $rollno;
 		$result = mysqli_query($con,"SELECT * FROM studentsData WHERE rollno = '$rollno'");
 		$count = mysqli_fetch_array($result);
 
 		if(empty($count['id']))
 		{
 		$flag = 1;
-		$notFound = $_POST["rollno4"];
+		$notFound = $notFound."<br>".$_POST["rollno4"];
 		}
 		else
 		{
 			$studentId = $count['id'];
 			$result = mysqli_query($con,"SELECT * FROM studentCompanyAttended WHERE studentId = '$studentId' AND companyId = '$companyId'");
 			$count = mysqli_fetch_array($result);
-			$found = $_POST["rollno4"];
+			$found = $found."<br>".$_POST["rollno4"];
 		if(empty($count['id'])){
-			echo "string companyId = ".$companyId."studentId = ".$studentId."date = ".$date;
+			//echo "string companyId = ".$companyId."studentId = ".$studentId."date = ".$date;
 			$result = mysqli_query($con,"INSERT INTO studentCompanyAttended (companyId,studentId,dateCompany) VALUES ('$companyId','$studentId','$date')");
 			$result = mysqli_query($con,"SELECT * FROM attendance WHERE rollno = '$rollno'");
 			$count = mysqli_fetch_array($result);
@@ -226,7 +264,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 			$noOfDays = $count1['noOfDays'];
 			$date4=date_create($date);
 			date_add($date4,date_interval_create_from_date_string("0 days"));
-			$attendance = $attendance.",".date_format($date4,"d-m");
+			$dateTemp = date_format($date4,"d-m");
+			if(strstr($attendance, $dateTemp)!=0)
+			{
+				
+			}
+			else
+			{
+				$attendance = $attendance.",".date_format($date4,"d-m");
+				
+			}
 			
 			if(empty($count['rollno']))
 			{
@@ -249,23 +296,23 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		$attendance = "";
 		$rollno = $_POST["rollno5"];
-		echo $rollno;
+		//echo $rollno;
 		$result = mysqli_query($con,"SELECT * FROM studentsData WHERE rollno = '$rollno'");
 		$count = mysqli_fetch_array($result);
 
 		if(empty($count['id']))
 		{
 		$flag = 1;
-		$notFound = $_POST["rollno5"];
+		$notFound = $notFound."<br>".$_POST["rollno5"];
 		}
 		else
 		{
 			$studentId = $count['id'];
 			$result = mysqli_query($con,"SELECT * FROM studentCompanyAttended WHERE studentId = '$studentId' AND companyId = '$companyId'");
 			$count = mysqli_fetch_array($result);
-			$found = $_POST["rollno5"];
+			$found = $found."<br>".$_POST["rollno5"];
 		if(empty($count['id'])){
-			echo "string companyId = ".$companyId."studentId = ".$studentId."date = ".$date;
+			//echo "string companyId = ".$companyId."studentId = ".$studentId."date = ".$date;
 			$result = mysqli_query($con,"INSERT INTO studentCompanyAttended (companyId,studentId,dateCompany) VALUES ('$companyId','$studentId','$date')");
 			$result = mysqli_query($con,"SELECT * FROM attendance WHERE rollno = '$rollno'");
 			$count = mysqli_fetch_array($result);
@@ -278,7 +325,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 			$noOfDays = $count1['noOfDays'];
 			$date5=date_create($date);
 			date_add($date5,date_interval_create_from_date_string("0 days"));
-			$attendance = $attendance.",".date_format($date5,"d-m");
+			$dateTemp = date_format($date5,"d-m");
+			if(strstr($attendance, $dateTemp)!=0)
+			{
+				
+			}
+			else
+			{
+				$attendance = $attendance.",".date_format($date5,"d-m");
+				
+			}
 			
 			if(empty($count['rollno']))
 			{
@@ -299,7 +355,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	}
 	if($flag == 0)
 	{
-		$_SESSION['message'] = "Successfully you have added the attendance of the following students :".$found;
+		$_SESSION['message'] = "Successfully you have added the attendance of the following students :<br>".$found;
 		header("location:addStudentAttendance.php?companyId=".$companyId."&date=".$date);
 	}
 	if($flag == 1)

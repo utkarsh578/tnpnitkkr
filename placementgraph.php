@@ -10,6 +10,14 @@ else
 	unset($_SESSION['name']);
 	$_SESSION['name']=$name;
 }
+
+for($i=0;$i<strlen($name);$i++)
+{
+	if($name[$i]==' ')
+	break;
+}
+
+$name=substr($name,0,$i);
 ?>
 
 <!DOCTYPE html>
@@ -20,11 +28,31 @@ else
 <head>
 <meta charset="utf-8">
 <title>Training & Placement</title>
+<head>
 <link rel="stylesheet" type="text/css" href="placementgraph.css" />
+<link rel="stylesheet" type="text/css" href="comm.css" />
+<script src="jquery.min.js"></script>
+<script src="comm.js"></script>
 </head>
 <body>
+
+
+ <div id="header-wrap">
+	<div id="header-container">
+		<div id="header">
+			<img src="nitlogo.png" style="height:80px; width:80px; position:absolute; top:6px; left:-50px;"/>
+			<h2 style="font-size:50px; color:white; position:absolute; top:15px; left:300px;">NIT Placement</h2>
+			
+			<img id="btn1" src="set.png" width="39px" style="position:absolute; top:27px; right:0px; z-index:+1;" height="39px" onclick='f5()'/>
+			<img id="btn2" src="set.png" width="39px" style="position:absolute; top:27px;  visibility:hidden; right:0px; z-index:+2;" height="39px" onclick='f6()'/>
+			<h2 id="name"><p style="position:absolute; right:5px;top:11px; cursor: default;" ><?php echo $name ?></p></h2>
+			<h2 id="change"><p style="position:absolute; left:30px;top:12px;"><a id="abc" href="frontpage.php">Back</a></p></h2>
+			<h2 id="log"><p style="position:absolute; right:15px;top:12px;"><a id="abc" href="#">Sign Out</a></p></h2>
+		</div>
+	</div>
+</div>
+
 <div class="container">
-<h2><img src="nitlogo.png" style="height:100px; width:100px; position:absolute; top:-12px; left:-110px;"/>&nbsp;View<br><br><br>&nbsp;Placement</h2>
 	<section id="content">
 		<form action="" method="post">
 			<h1>View</h1>
@@ -42,5 +70,14 @@ else
 		</div><!-- button -->
 	</section><!-- content -->
 </div><!-- container -->
+
+<div id="footer-wrap">
+	<div id="footer-container">
+		<div id="footer">
+			<p style="color:white; font-size:12px; position:absolute; top:10px; right:-150px;">Developed By <b style="font-size:15px;">U</b>tkarsh, <b style="font-size:15px;">H</b>imanshu <b style="font-size:15px;">S</b>oni and <b style="font-size:15px;">A</b>nirudh <b style="font-size:15px;">A</b>garwal</p>
+			<a style="color:white; font-size:18px; font-weight:bold; position:absolute; top:10px; left:415px;" href="http://www.nitkkr.ac.in" target="_blank">NIT WEBSITE</a>
+		</div>
+	</div>
+</div>
 </body>
 </html>

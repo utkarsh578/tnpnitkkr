@@ -1,15 +1,5 @@
 <?php
 session_start();
-if(!isset($_SESSION['name']))
-{
-	header("location:loginpage.php");
-}
-else
-{
-	$name=$_SESSION['name'];
-	unset($_SESSION['name']);
-	$_SESSION['name']=$name;
-}
 include 'db_connect.php';
 $value = 1;
 if ($_SERVER["REQUEST_METHOD"] == "GET")
@@ -41,6 +31,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 }
 
 	$result = mysqli_query($con,"SELECT * FROM company");
+	
+	$name=$_SESSION['name'];
+	unset($_SESSION['name']);
+	$_SESSION['name']=$name;
+
+for($i=0;$i<strlen($name);$i++)
+{
+	if($name[$i]==' ')
+	break;
+}
+
+$name=substr($name,0,$i);
 ?>
 <!DOCTYPE html>
 <html>
@@ -61,6 +63,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 </script>
 
 	<link rel="stylesheet" type="text/css" href="viewStudentPlacedCompany.css" />
+	<link rel="stylesheet" type="text/css" href="comm.css" />
+<script src="jquery.min.js"></script>
+<script src="comm.js"></script>
 	<style type='text/css'>
 .tftable {position:absolute; top:10px; left:520px;font-size:12px;color:#333333;width:60%;border-width: 1px;border-color: #729ea5;border-collapse: collapse;}
 .tftable th {font-size:20px;background-color:#acc8cc;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;text-align:center;}
@@ -78,6 +83,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 			<img src="nitlogo.png" style="height:80px; width:80px; position:absolute; top:6px; left:-50px;"/>
 			<h2 style="font-size:50px; color:white; position:absolute; top:15px; left:300px;">NIT Placement</h2>
 			
+			<img id="btn1" src="set.png" width="39px" style="position:absolute; top:27px; right:0px; z-index:+1;" height="39px" onclick='f5()'/>
+			<img id="btn2" src="set.png" width="39px" style="position:absolute; top:27px;  visibility:hidden; right:0px; z-index:+2;" height="39px" onclick='f6()'/>
+			<h2 id="name"><p style="position:absolute; right:5px;top:11px; cursor: default;" ><?php echo $name ?></p></h2>
+			<h2 id="change"><p style="position:absolute; left:30px;top:12px;"><a id="abc" href="frontpage.php">Back</a></p></h2>
+			<h2 id="log"><p style="position:absolute; right:15px;top:12px;"><a id="abc" href="#">Sign Out</a></p></h2>
 		</div>
 	</div>
 </div>

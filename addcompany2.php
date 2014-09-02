@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION['name']))
 {
-	header("location:http://localhost/tnp/loginpage.php");
+	header("location:loginpage.php");
 }
 else
 {
@@ -16,18 +16,21 @@ $status=$_POST['status'];
 $date_of_visit=$_POST['date_of_visit'];
 $no_of_days=$_POST['no_of_days'];
 $pac_member=$_POST['pac_member'];
+$hr_name = $_POST['nr_name'];
+$hr_contact = $_POST['hr_contact'];
+$hr_email = $_POST['hr_email'];
 $offer=0;
 if($status=="dream")
 	$offer=1;
 if($status=="superdream")
 	$offer=2;
 include "db_connect.php";
-$sql="INSERT INTO company (companyName,ctc,offer,dateOfVisit,noOfDays,pacMember,studentHired)
-VALUES ('".$companyname."','".$package."',".$offer.",'".$date_of_visit."',".$no_of_days.",'".$pac_member."',0)";
+$sql="INSERT INTO company (companyName,ctc,offer,dateOfVisit,noOfDays,pacMember,hrName,hrContace,hrEmail)
+VALUES ('$companyname','$package','$offer','$date_of_visit','$no_of_days','$pac_member','$hr_name','$hr_contact','$hr_email')";
 if (!mysqli_query($con,$sql)) {
   die('Error: ' . mysqli_error($con));
 }
 mysqli_close($con);
 $_SESSION['company']=$_POST['name'];
-header("location:http://localhost/tnp/addcompany1.php");
+header("location:addcompany1.php");
 ?>

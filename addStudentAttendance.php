@@ -1,16 +1,15 @@
 <?php
 session_start();
-if(!isset($_SESSION['name']))
-{
-	header("location:loginpage.php");
-}
-else
-{
+
+include 'db_connect.php';
+
+
+//$count=mysqli_fetch_array($result);
+
 	$name=$_SESSION['name'];
 	unset($_SESSION['name']);
 	$_SESSION['name']=$name;
-}
-include 'db_connect.php';
+
 if ($_SERVER["REQUEST_METHOD"] == "GET")
 {
 	if(isset($_GET["companyId"]))
@@ -31,11 +30,8 @@ if ($_SERVER["REQUEST_METHOD"] == "GET")
 	{
 		$date = "";
 	}
-	//$result1 = mysqli_query($con,"SELECT * FROM studentCompanyAttended LEFT JOIN studentsData ON studentCompanyAttended.studentId = studentsData.id WHERE studentCompanyAttended.companyId = '$companyId'");
 }
-$result = mysqli_query($con,"SELECT * FROM company");
-//$count=mysqli_fetch_array($result);
-
+	$result = mysqli_query($con,"SELECT * FROM company");
 ?>
 
 <!DOCTYPE html>
@@ -47,8 +43,22 @@ $result = mysqli_query($con,"SELECT * FROM company");
 <meta charset="utf-8">
 <title>Training & Placement</title>
 <link rel="stylesheet" type="text/css" href="addStudentAttendence.css" />
+<link href="jquery.datepick.css" rel="stylesheet"/>
+<script src="jquery.min.js"></script>
+<script src="jquery.plugin.js"></script>
+<script src="jquery.datepick.js"></script>
+
+<link rel="stylesheet" type="text/css" href="comm2.css" />
+
+<script>
+$(function() {
+	$('#popupDatepicker').datepick({ dateFormat: 'yyyy-mm-dd' });
+});
+</script>
 </head>
 <body>
+	<h3 id='hide' style='position:absolute; top:140px; text-align:center; color:white; left:20px; display:block; height:400px; width:300px; background-color:maroon; border-top-left-radius: 10px; border-top-right-radius: 10px; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;'>
+	<p id='hide' style='position:absolute; top:8px;'>
 <?php
 	if (isset($_SESSION['message'])) {
 		echo $_SESSION['message'];
@@ -56,14 +66,17 @@ $result = mysqli_query($con,"SELECT * FROM company");
 	}
 
  ?>
+</p></h3>
  
  <div id="header-wrap">
 	<div id="header-container">
 		<div id="header">
 			<img src="nitlogo.png" style="height:80px; width:80px; position:absolute; top:6px; left:-50px;"/>
 			<h2 style="font-size:50px; color:white; position:absolute; top:15px; left:300px;">NIT Placement</h2>
-			<h2 style="font-size:14px; color:maroon; position:absolute; top:30px; right:-160px; display:block; padding: 8px 8px 10px 10px; background-color:white;">Log Out</h2>
-</div>
+		
+			<img id="btn1" src="set.png" width="39px" style="position:absolute; top:27px; right:0px; z-index:+1;" height="39px"/>
+			<h2 id="name"><p style="position:absolute; right:30px;top:10px; cursor: default;" ><a id="abc" href="frontpage.php">Back</a></p></h2>
+		</div>
 	</div>
 </div>
 
@@ -72,33 +85,38 @@ $result = mysqli_query($con,"SELECT * FROM company");
 	<section id="content">
 		<form method="post" action="addStudentAttendanceDb.php">
 			<h1>Student Attendance</h1>
-			<br><br>
+			
 			<div>
-				<select name="companyId" required value = <?php echo $value; ?>>
+				<select name="companyId" required>
 				<option selected disabled>Company Name</option>
-				<?php
+			<?php
 					while ($row = mysqli_fetch_array($result)) {
 
 				echo "<option value=".$row['id']; if($value == $row['id']){echo " selected =".$row['id'].">".$row['companyName']."</option>";}else{ echo ">".$row['companyName']."</option>";}
 					}
 				?>
 				</select>
-				<br><br>
+				
 			</div>
-			<br><br>
+			<br>
 			<div>
-			Date : <input type="date" name="date" value=<?php echo $date;?>><br>
-
-				<input type="text" placeholder="Roll No. 1" name="rollno1"/>
-			
+				<input type="" placeholder="Date of Visit" id="popupDatepicker" name="date" value=<?php echo $date;?>  required>
+			</div>
+			<br>
+			<div>
+				<input type="text" placeholder="Roll No. 1" required name="rollno1"/>
+				
 				<input type="text" placeholder="Roll No. 2" name="rollno2"/>
 			
 				<input type="text" placeholder="Roll No. 3" name="rollno3"/>
+			</div>
 			
+			<div>
 				<input type="text" placeholder="Roll No. 4" name="rollno4"/>
 			
 				<input type="text" placeholder="Roll No. 5" name="rollno5"/>
-			
+			</div>
+			<div>
 				<input type="submit" value="Submit" />
 			</div>
 			

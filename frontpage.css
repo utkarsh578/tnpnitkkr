@@ -16,6 +16,68 @@ table, caption, tbody, tfoot, thead, tr, th, td {
 	vertical-align: baseline;
 	background: transparent;
 }
+#a{
+text-decoration:none;
+color:maroon;
+}
+
+#name
+{
+	font-size:18px; 
+	color:maroon; 
+	position:absolute; 
+	text-align:right; 
+	width:130px; 
+	height:25px;
+	top:25px; 
+	border-top-right-radius:15px; 
+	border-bottom-right-radius:15px; 
+	border-bottom-left-radius:30px; 
+	border-top-left-radius:30px; 
+	left:899px; display:block; 
+	background-color:white; 
+	padding: 8px 8px 10px 10px;
+}
+
+#log
+{
+	font-size:15px; 
+	color:maroon; 
+	visibility:hidden; 
+	position:absolute; 
+	text-align:right; 
+	width:0px; 
+	height:25px;
+	top:25px; 
+	border-top-right-radius:15px; 
+	border-bottom-right-radius:15px; 
+	border-bottom-left-radius:30px; 
+	border-top-left-radius:30px; 
+	left:899px; 
+	display:block; 
+	background-color:white; 
+	padding: 8px 8px 10px 10px;
+}
+
+#change
+{
+	font-size:15px; 
+	color:maroon; 
+	visibility:hidden; 
+	position:absolute; 
+	text-align:right; 
+	width:0px; 
+	height:25px;
+	top:25px; 
+	border-top-right-radius:30px; 
+	border-bottom-right-radius:30px; 
+	border-bottom-left-radius:15px; 
+	border-top-left-radius:15px; 
+	right:-1px; 
+	display:block; 
+	background-color:white; 
+	padding: 8px 8px 10px 10px;
+}
 body {
 	background: #FFFFCC;
 	color: #000;
@@ -208,13 +270,13 @@ form:after {
 	border: 1px solid #D69E31;
 	color: #85592e;
 	cursor: pointer;
-	float: left;
+	float:left;
 	font: bold 15px Helvetica, Arial, sans-serif;
 	height: 35px;
-	margin: 20px 0 35px 15px;
+	margin: 15px 0 35px 5px;
 	position: relative;
 	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
-	width: 120px;
+	width: 80px;
 }
 #content form input[type="submit"]:hover {
 	background: rgb(254,193,81);

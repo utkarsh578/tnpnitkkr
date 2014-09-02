@@ -28,39 +28,17 @@ else {
 <meta charset="utf-8">
 <title>Training & Placement</title>
 <link rel="stylesheet" type="text/css" href="addStudentDetail.css" />
+<link rel="stylesheet" type="text/css" href="comm2.css" />
 <script>
-function f3(){
-var c=0;
-var one=document.getElementById("sgpa1").value;
-if(one!='')
-c++;
-else
-one='';
-var two=document.getElementById("sgpa2").value;
 
-if(two!='')
-c++;
-else
-two='';
-var three=document.getElementById("sgpa3").value;
-if(three!='')
-c++;
-else
-three='';
-var four=document.getElementById("sgpa4").value;
-if(four!='')
-c++;
-else
-four='';
-var five=document.getElementById("sgpa5").value;
-if(five!='')
-c++;
-else
-five='';
+var timePeriodInMs = 2000;
 
-var val=(parseFloat(one) + parseFloat(two) + parseFloat(three) + parseFloat(four) + parseFloat(five))/parseFloat(c);
-document.getElementById("cgpa6").value=val.toFixed(4);
-}
+setTimeout(function() 
+{ 
+	document.getElementById("hide").style.display = "none"; 
+},timePeriodInMs);
+
+
 function f1(){
 
 	var degree=document.getElementById("degree").value;
@@ -289,10 +267,13 @@ function f2(){
 </script>
 </head>
 <body>
+
 <?php
 	if (isset($_SESSION['message'])) {
-		echo $_SESSION['message'];
-		unset($_SESSION['message']);
+	echo "
+	<h3 id='hide' style='position:absolute; top:65px; text-align:center; color:white; left:560px; display:block; height:45px; width:240px; background-color:maroon; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;'>
+	<p id='hide' style='position:absolute; top:8px;'><center>".$_SESSION['message']."</center></p></h3>";
+	unset($_SESSION['message']);
 	}
 
  ?>
@@ -303,6 +284,8 @@ function f2(){
 			<img src="nitlogo.png" style="height:80px; width:80px; position:absolute; top:6px; left:-50px;"/>
 			<h2 style="font-size:50px; color:white; position:absolute; top:15px; left:300px;">NIT Placement</h2>
 			
+			<img id="btn1" src="set.png" width="39px" style="position:absolute; top:27px; right:0px; z-index:+1;" height="39px"/>
+			<h2 id="name"><p style="position:absolute; right:30px;top:10px; cursor: default;" ><a id="abc" href="frontpage.php">Back</a></p></h2>
 		</div>
 	</div>
 </div>
@@ -365,7 +348,6 @@ function f2(){
 			</div>
 			
 			<div>
-			<input type="button" value="Calculate" onclick='f3()'/>
 				<input type="text" id="cgpa6" placeholder="CGPA 4" name="cgpa6" style="width:70px;"/>
 			</div>
 			<br>

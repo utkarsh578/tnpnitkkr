@@ -27,6 +27,6 @@ if (!mysqli_query($con,$sql)) {
   die('Error: ' . mysqli_error($con));
 }
 $_SESSION['action']=1;
-header("location:http://localhost/tnp/viewcompany.php");
+header("location:viewcompany.php");
 mysqli_close($con);
 ?>

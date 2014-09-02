@@ -1,15 +1,5 @@
 <?php
 session_start();
-if(!isset($_SESSION['name']))
-{
-	header("location:loginpage.php");
-}
-else
-{
-	$name=$_SESSION['name'];
-	unset($_SESSION['name']);
-	$_SESSION['name']=$name;
-}
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
 	include 'db_connect.php';
@@ -66,7 +56,8 @@ $result = mysqli_query($con,"SELECT * FROM attendance LEFT  JOIN studentsData ON
 		echo "<td>".$row['name']."</td>";
 		echo "<td>".$row['rollno']."</td>";
 		echo "<td>".$row['branch']."</td>";
-		echo "<td>".$row['totalDays']."</td>";
+		$totalDays = substr($row['totalDays'], 1);
+		echo "<td>".$totalDays."</td>";
 		echo "</tr>";
 	}
 	?>

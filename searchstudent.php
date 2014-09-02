@@ -10,6 +10,7 @@ else
 	unset($_SESSION['name']);
 	$_SESSION['name']=$name;
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -21,6 +22,8 @@ else
 <meta charset="utf-8">
 <title>Training & Placement</title>
 <link rel="stylesheet" type="text/css" href="searchstudent.css" />
+<link rel="stylesheet" type="text/css" href="comm2.css" />
+
 <script>
 function f1(){
 
@@ -256,6 +259,9 @@ function f2(){
 		<div id="header">
 			<img src="nitlogo.png" style="height:80px; width:80px; position:absolute; top:6px; left:-50px;"/>
 			<h2 style="font-size:50px; color:white; position:absolute; top:15px; left:300px;">NIT Placement</h2>
+
+			<img id="btn1" src="set.png" width="39px" style="position:absolute; top:27px; right:0px; z-index:+1;" height="39px"/>
+			<h2 id="name"><p style="position:absolute; right:30px;top:10px; cursor: default;" ><a id="abc" href="frontpage.php">Back</a></p></h2>
 		</div>
 	</div>
 </div>
@@ -275,7 +281,7 @@ function f2(){
 			</div>
 		</form><!-- form -->
 		
-		<form action="searchstudent2.php" method="post" style="top:-40px;">
+		<form action="searchstudentpointer.php" method="post" style="top:-40px;">
 			<h1>Search By CGPA</h1>
 			<div>
 				<input type="text" name="cgpa" required placeholder="CGPA"/>
@@ -285,10 +291,10 @@ function f2(){
 			<div>
 				<select id="year" name="year">
 				<option value="" selected disabled>Year</option>
-				<option name="first" value="first">First</option>
-				<option name="second" value="second">Second</option>
-				<option name="third" value="third">Third</option>
-				<option name="fourth" value="fourth">Fourth</option>
+				<option name="first" value="1">First</option>
+				<option name="second" value="2">Second</option>
+				<option name="third" value="3">Third</option>
+				<option name="fourth" value="4">Fourth</option>
 				</select>
 				
 				

@@ -2,7 +2,7 @@
 session_start();
 if(!isset($_SESSION['name']))
 {
-	header("location:http://localhost/tnp/loginpage.php");
+	header("location:loginpage.php");
 }
 else
 {
@@ -10,6 +10,7 @@ else
 	unset($_SESSION['name']);
 	$_SESSION['name']=$name;
 }
+
 
 ?>
 
@@ -23,6 +24,7 @@ else
 <meta charset="utf-8">
 <title>Training & Placement</title>
 <link rel="stylesheet" type="text/css" href="addcompany1.css" />
+
 <script type='text/javascript'>
 var timePeriodInMs = 2000;
 
@@ -42,7 +44,7 @@ $(function() {
 });
 </script>
 
-
+<link rel="stylesheet" type="text/css" href="comm2.css" />
 </head>
 <body>
 	
@@ -54,17 +56,19 @@ $(function() {
 if(isset($_SESSION['company']))
 {
 	echo "
-	<h1 id='hide' style='position:absolute; top:90px; text-align:center; left:350px; display:block; height:40px; width:220px; background-color:maroon; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;'>
-	<p id='hide'>".$_SESSION['company']." Added</p>";
+	<h3 id='hide' style='position:absolute; top:90px; text-align:center; color:white; left:350px; display:block; height:45px; width:220px; background-color:maroon; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;'>
+	<p id='hide' style='position:absolute; top:8px;'><center>".$_SESSION['company']." Added</center></p></h3>";
 	unset($_SESSION['company']);
 }
 
 ?>
-</h1>
+
 			<img src="nitlogo.png" style="height:80px; width:80px; position:absolute; top:6px; left:-50px;"/>
 			<h2 style="font-size:50px; color:white; position:absolute; top:15px; left:280px;">NIT Placement</h2>
-			<h2 style="font-size:14px; color:maroon; position:absolute; top:30px; right:-160px; display:block; padding: 8px 8px 10px 10px; background-color:white;">Log Out</h2>
-</div>
+
+			<img id="btn1" src="set.png" width="39px" style="position:absolute; top:27px; right:0px; z-index:+1;" height="39px"/>
+			<h2 id="name"><p style="position:absolute; right:30px;top:10px; cursor: default;" ><a id="abc" href="frontpage.php">Back</a></p></h2>
+			</div>
 	</div>
 </div>
 
@@ -74,10 +78,9 @@ if(isset($_SESSION['company']))
 			<h1>Company Details</h1>
 			<div>
 				<input type="text" placeholder="Company Name" required="" name="name" />
-			</div>
-			<div>
 				<input type="text" placeholder="Package" required name="package"/>
 			</div>
+
 			<div>
 				<input type="radio" name="status" id="radio1" value="normal" required><label for="radio1">Normal</label> 
 				<input type="radio" name="status" id="radio2" value="dream" required><label for="radio2">Dream</label> 
@@ -86,6 +89,11 @@ if(isset($_SESSION['company']))
 			
 			<br>
 			<div>
+				<input type="text" placeholder="H.R. Name" required="" name="hr_name" />
+				<input type="text" placeholder="H.R. Contact" required name="hr_contact"/>
+			</div>
+			<div>
+				<input type="text" placeholder="H.R. Email" required name="hr_email"/>
 				<input type="text" placeholder="PAC Member" name="pac_member">
 			</div>
 			<br>

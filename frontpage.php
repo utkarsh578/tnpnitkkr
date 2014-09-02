@@ -11,6 +11,14 @@ else
 	$_SESSION['name']=$name;
 }
 
+for($i=0;$i<strlen($name);$i++)
+{
+	if($name[$i]==' ')
+	break;
+}
+
+$name=substr($name,0,$i);
+
 ?>
 
 <!DOCTYPE html>
@@ -24,29 +32,9 @@ else
 <link rel="stylesheet" type="text/css" href="frontpage.css" />
 <link rel="stylesheet" type="text/css" href="slide_down.css" />
 
+<link rel="stylesheet" type="text/css" href="comm.css" />
 <script src="jquery.min.js"></script>
-<script>
-$(document).ready(function()
-  {
-  $("#btn1").click(function(){
-	$("#log").animate({width:"110px"});
-	$("#change").animate({width:"110px"});
-  });
-  $("#btn2").click(function(){
-	$("#log").animate({width:"0px"});
-	$("#change").animate({width:"0px"});
-  });
-});
-
-function f1()
-{
-document.getElementById("name").style.visibility="hidden";
-document.getElementById("log").style.visibility="visible";
-document.getElementById("change").style.visibility="visible";
-document.getElementById("btn1").id='btn2';
-}
-
-</script>
+<script src="comm.js"></script>
 
 </head>
 <body>
@@ -56,11 +44,12 @@ document.getElementById("btn1").id='btn2';
 		<div id="header">
 			<img src="nitlogo.png" style="height:80px; width:80px; position:absolute; top:6px; left:-50px;"/>
 			<h2 style="font-size:50px; color:white; position:absolute; top:15px; left:300px;">NIT Placement</h2>
-			<img id="btn1" src="set.png" width="40px" style="position:absolute; top:27px; right:0px; z-index:+1;" height="40px" onclick='f1()'/>
-			<h2 id="name" style="font-size:18px; color:maroon; position:absolute; text-align:right; width:130px; height:25px;top:25px; border-top-right-radius:15px; border-bottom-right-radius:15px; border-bottom-left-radius:30px; border-top-left-radius:30px; right:-107px; display:block; background-color:white; padding: 8px 8px 10px 10px;"><?php echo $name ?></h2>-->
-			<h2 id="log" style="font-size:18px; color:maroon; visibility:hidden; position:absolute; text-align:right; width:0px; height:25px;top:25px; border-top-right-radius:15px; border-bottom-right-radius:15px; border-bottom-left-radius:30px; border-top-left-radius:30px; left:899px; display:block; background-color:white; padding: 8px 8px 10px 10px;"><a id="a" href="logout.php">Log Out</a></h2>
-			<h2 id="change" style="font-size:15px; color:maroon; visibility:hidden; position:absolute; text-align:right; width:0px; height:25px;top:25px; border-top-right-radius:30px; border-bottom-right-radius:30px; border-bottom-left-radius:15px; border-top-left-radius:15px; right:-1px; display:block; background-color:white; padding: 8px 8px 10px 10px;"><p style="position:absolute; top:3px;" ><a id="a" href="#">Change&nbsp;&nbsp;<br> Password</a></p></h2>-->
-</div>
+			<img id="btn1" src="set.png" width="39px" style="position:absolute; top:27px; right:0px; z-index:+1;" height="39px" onclick='f5()'/>
+			<img id="btn2" src="set.png" width="39px" style="position:absolute; top:27px;  visibility:hidden; right:0px; z-index:+2;" height="39px" onclick='f6()'/>
+			<h2 id="name"><p style="position:absolute; right:5px;top:11px; cursor: default;" ><?php echo $name ?></p></h2>
+			<h2 id="log"><p style="position:absolute; right:15px;top:12px;" ><a id="abc" href="logout.php">Sign Out</a></p></h2>
+			<h2 id="change"><p style="position:absolute; top:3px;" ><a id="abc" href="#">Change&nbsp;&nbsp;<br> Password</a></p></h2>
+		</div>
 	</div>
 </div>
 
@@ -77,6 +66,9 @@ document.getElementById("btn1").id='btn2';
 			<div>
 				<a href="attendanceReport.php"><input type="button" value="View" /></a>
 			</div>
+			<div>
+				<a href="deleteAttendance.php"><input type="button" value="Delete" /></a>
+			</div>
 		</form><!-- form -->
 		
 	</section><!-- content -->
@@ -85,10 +77,10 @@ document.getElementById("btn1").id='btn2';
 		<form>
 			<h1 style="font-size:30px;">Student</h1>
 			<div>
-				<a href="addStudentDetail.php"><input type="button" value="Add" /></a>
+				<a href="addStudentDetail.php"><input type="button" style="left:-30px;" value="Add" /></a>
 			</div>
 			<div>
-				<a href="searchstudent.php"><input type="button" value="Search" /></a>
+				<a href="searchstudent.php"><input type="button" style="left:-50px;" value="Search" /></a>
 			</div>
 		</form><!-- form -->
 		
@@ -98,10 +90,10 @@ document.getElementById("btn1").id='btn2';
 		<form>
 			<h1 style="font-size:30px;">Add Company</h1>
 			<div>
-				<a href="addcompany1.php"><input type="button" value="Add" /></a>
+				<a href="addcompany1.php"><input type="button"  style="left:-30px;" value="Add" /></a>
 			</div>
 			<div>
-				<a href="viewcompany.php"><input type="button" value="View" /></a>
+				<a href="viewcompany.php"><input type="button"  style="left:-50px;" value="View" /></a>
 			</div>
 		</form><!-- form -->
 		
@@ -111,7 +103,7 @@ document.getElementById("btn1").id='btn2';
 		<form>
 			<h1 style="font-size:30px;">Placement Graph</h1>
 			<div>
-				<a href="placementgraph.php"><input type="button" value="View" style="left:-80px;"/></a>
+				<a href="placementgraph.php"><input type="button" value="View" style="left:-100px;"/></a>
 			</div>
 		</form><!-- form -->
 		
@@ -121,10 +113,10 @@ document.getElementById("btn1").id='btn2';
 		<form>
 			<h1 style="font-size:30px;">Update Record</h1>
 			<div>
-				<a href="updatePlacementRecord.php"><input type="button" value="Update" /></a>
+				<a href="updatePlacementRecord.php"><input type="button"  style="left:-30px;" value="Update" /></a>
 			</div>
 			<div>
-				<a href="viewStudentPlacedCompany.php"><input type="button" value="View" /></a>
+				<a href="viewStudentPlacedCompany.php"><input type="button"  style="left:-50px;" value="View" /></a>
 			</div>
 		</form><!-- form -->
 		
