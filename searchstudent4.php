@@ -31,6 +31,6 @@ $sql="UPDATE studentsData set name='".$name."' ,rollno=".$rollno." ,email='".$em
 if (!mysqli_query($con,$sql)) {
   die('Error: ' . mysqli_error($con));
 }
-echo "updated";
+header("location:searchstudent3.php?roll=".$rollno);
 mysqli_close($con);
 ?>
