@@ -71,8 +71,6 @@ $(function() {
 			<input type="hidden" value=<?php echo "\"".$id."\""; ?> name="id">
 			<div>
 				<input type="text" value=<?php echo "\"".$row['companyName']."\""; ?> name="name">
-			</div>
-			<div>
 				<input type="text" value=<?php echo "\"".$row['ctc']."\""; ?>  name="package">
 			</div>
 			<div>
@@ -94,7 +92,13 @@ $(function() {
 			</div>
 			
 			<br>
+			
 			<div>
+				<input type="text" value=<?php echo "\"".$row['hrName']."\""; ?>  required="" name="hr_name" />
+				<input type="text" value=<?php echo "\"".$row['hrContact']."\""; ?> required name="hr_contact"/>
+			</div>
+			<div>
+				<input type="text" value=<?php echo "\"".$row['hrEmail']."\""; ?> required name="hr_email"/>
 				<input type="text" value=<?php echo "\"".$row['pacMember']."\""; ?> name="pac_member">
 			</div>
 			<br>

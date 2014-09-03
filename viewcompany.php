@@ -26,10 +26,10 @@ echo "<html>
 <head>
 <title>View Company</title>
 <style type='text/css'>
-.tftable {position:relative; top:110px;font-size:12px;color:#333333;width:90%;border-width: 1px;border-color: #729ea5;border-collapse: collapse;}
-.tftable th {font-size:20px;background-color:#acc8cc;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;text-align:center;}
+.tftable {position:relative; top:110px;font-size:12px;color:#333333;width:auto;border-width: 1px;border-color: #729ea5;border-collapse: collapse;}
+.tftable th {font-size:16px;background-color:#acc8cc;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;text-align:center;}
 .tftable tr {background-color:#ffffff;}
-.tftable td {font-size:18px;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;}
+.tftable td {font-size:15px;border-width: 1px;padding: 8px;border-style: solid;border-color: #729ea5;}
 .tftable tr:hover {background-color:#acc8cc;}
 </style>
 <link rel='stylesheet' type='text/css' href='viewcompany.css' />
@@ -59,10 +59,13 @@ echo "<center><table class='tftable'  id='table1' border='5px'>
 echo "<th>Name</th>";
 echo "<th>Package</th>";
 echo "<th>Status</th>";
-echo "<th>Date_of_Visit</th>";
-echo "<th>No_of_Days</th>";
-echo "<th>Pac_Member</th>";
-echo "<th>Students Hired</th><th>Edit</th><th>Delete</th>
+echo "<th>Date of Visit</th>";
+echo "<th>No of Days</th>";
+echo "<th>Pac Member</th>";
+echo "<th>HR Name</th>";
+echo "<th>HR Phone</th>";
+echo "<th>HR Email</th>";
+echo "<th>Students Hired</th>
 </tr>
 </thead>
 <tbody>";
@@ -74,6 +77,8 @@ while($row = mysqli_fetch_array($result)) {
   echo "<tr>";
   echo "<td>".$row['companyName']."</td>";
   echo "<td>".$row['ctc']."</td>";
+  if($row['offer']==0)
+    $stat="normal";
   if($row['offer']==1)
     $stat="dream";
   if($row['offer']==2)
@@ -82,9 +87,12 @@ while($row = mysqli_fetch_array($result)) {
   echo "<td>".$row['dateOfVisit']."</td>";
   echo "<td>".$row['noOfDays']."</td>";
   echo "<td>".$row['pacMember']."</td>";
+  echo "<td>".$row['hrName']."</td>";
+  echo "<td>".$row['hrContact']."</td>";
+  echo "<td>".$row['hrEmail']."</td>";
   echo "<td>".$row['studentHired']."</td>";
-  echo "<td><form action='editcompany.php' method='post'><input type='hidden' name='id".$count."' value='".$row['id']."'><input type='submit' id='submit' value='Edit'></form></td>";
-  echo "<td><form action='deletecompany.php' method='post'><input type='hidden' name='id".$count."' value='".$row['id']."'><input type='submit' id='submit' value='Delete'></form></td>";
+  echo "<td><form action='editcompany.php' method='post'><input type='hidden' name='id".$count."' value='".$row['id']."'><input type='submit' id='submit' value='E'></form></td>";
+  echo "<td><form action='deletecompany.php' method='post'><input type='hidden' name='id".$count."' value='".$row['id']."'><input type='submit' id='submit' value='D'></form></td>";
   echo "</tr>";
 }
 echo "</tbody></table></center>

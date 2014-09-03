@@ -12,25 +12,29 @@ else
 }
 include "db_connect.php";
 $result="";
-echo $_POST['cgpa']." ".$_POST['year']." ".$_POST['degree'];
-//if(isset($_POST['subbranch']))
-//$result = mysqli_query($con,"SELECT * FROM studentsData where cgpa>=".$_POST['cgpa']." and year=".$_POST['year']." and degree='".$_POST['degree']."' and branch='".$_POST['branch']."' and subbranch='".$_POST['subbranch']."'");
-//else
+//echo $_POST['cgpa']." ".$_POST['year']." ".$_POST['degree'];
+if(isset($_POST['subbranch']))
+$result = mysqli_query($con,"SELECT * FROM studentsData where cgpa>=".$_POST['cgpa']." and year=".$_POST['year']." and degree='".$_POST['degree']."' and branch='".$_POST['branch']."' and subbranch='".$_POST['subbranch']."'");
+else
 $result = mysqli_query($con,"SELECT * FROM studentsData where cgpa>=".$_POST['cgpa']." and year=".$_POST['year']." and degree='".$_POST['degree']."' and branch='".$_POST['branch']."'");
 echo "<html><head><title>View Student</title></head><body>";
-echo "<table border='5px'><tr>";
+echo "<form action='studentinterested.php' method='post'><table border='5px'><tr>";
 echo "<th>Name</th>";
 echo "<th>RollNumber</th>";
 echo "<th>E-Mail</th>";
 echo "<th>Contact Number</th>";
+echo "<th>Interested</th>";
 echo "</tr>";
+$count=0;
 while($row = mysqli_fetch_array($result))
 {
+	$count++;
 	echo "<tr><td>".$row['name']."</td>";
 	echo "<td>".$row['rollno']."</td>";
 	echo "<td>".$row['email']."</td>";
-
-	echo "<td>".$row['contacts']."</td></tr>";
+	echo "<td>".$row['contacts']."</td>";
+	echo "<td><input type='checkbox' name='chk".$count."' value=".$row['id']."></td></tr>";
 }
-echo "</table></body></html>";
+echo "<input type='hidden' name='count' value=".$count.">";
+echo "</table><input type='submit' value='Generate'></form></body></html>";
 ?>
