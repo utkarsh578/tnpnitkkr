@@ -30,13 +30,14 @@ window.print();
 echo "
 <h1 align='center'>NIT KURUSHETRA</h1>
 <h2 align='center'>Placement Report</h2>
-<center><h3>Degree: <?php echo $degree; ?></h3></center>
+<center></h3></center>
 <br>
 <br>
 <br>
 <table class='tftable' border='5px' align='center'><tr>";
 echo "<th>Company Name</th>";
 echo "<th>MCA</th></tr>";
+$mca=0;
 $result = mysqli_query($con,"SELECT * FROM company");
 while($row = mysqli_fetch_array($result)) {
 	echo "<tr><td>".$row['companyName']."</td>";
@@ -45,8 +46,15 @@ while($row = mysqli_fetch_array($result)) {
 	$row1 = mysqli_fetch_array($result1);
 	$count=$row1['count(*)'];
 	echo "<td>".$count."</td>";
+	$mca+=$count;
 	echo "</tr>";
 }
+echo "<tr><td><b>Total Placed : </b></td><td>".$mca."</td></tr>";
+echo "<tr><td><b>Total Students : </b></td>";
+$result1= mysqli_query($con,"SELECT count(*) FROM studentsData where degree='MCA'");
+	$row1 = mysqli_fetch_array($result1);
+	$count=$row1['count(*)'];
+	echo "<td>".$count."</td></tr>";
 echo "</table><a id='sub' href='#' onclick='f1()'>Print</a></body></html>";
 mysqli_close($con);
 ?>

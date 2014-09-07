@@ -24,7 +24,7 @@ body {
 	padding: 0;
 	position: relative;
 	top:0px;
-	overflow:hidden;
+	
 }
 h1{ font-size:28px;}
 h2{ font-size:26px;}
@@ -77,11 +77,11 @@ form:after {
 	margin: 0 auto;
 	padding: 25px 0 0;
 	position: relative;
-	top:85px;
+	top:110px;
 	text-align: center;
 	text-shadow: 0 1px 0 #fff;
 	width: 600px;
-	height:450px;
+	height:420px;
 }
 #content h1 {
 	color: #7E7E7E;
@@ -153,8 +153,7 @@ form:after {
 }
 #content form { margin: 0 20px; position: relative; }
 #content form input[type="text"],
-#content form input[type="password"],
-#small {
+#content form input[type="password"] {
 	-webkit-border-radius: 3px;
 	-moz-border-radius: 3px;
 	-ms-border-radius: 3px;
@@ -175,8 +174,8 @@ form:after {
 	color: #777;
 	font: 13px Helvetica, Arial, sans-serif;
 	margin: 0 0 10px;
-	padding: 15px 10px 15px 25px;
-	width: 30%;
+	padding: 15px 10px 15px 40px;
+	width: 50%;
 }
 
 #content form input[type="date"],
@@ -201,15 +200,13 @@ form:after {
 	color: #777;
 	font: 13px Helvetica, Arial, sans-serif;
 	margin: 0 0 10px;
-	padding: 15px 10px 15px 33px;
-	width: 10%;
+	padding: 15px 10px 15px 40px;
+	width: 20%;
 }
 #content form input[type="text"]:focus,
 #content form input[type="password"]:focus,
 #content form input[type=""]:focus,
-#content form input[type="date"]:focus,
-#content select:focus,
-#small :focus {
+#content form input[type="date"]:focus {
 	-webkit-box-shadow: 0 0 2px #ed1c24 inset;
 	-moz-box-shadow: 0 0 2px #ed1c24 inset;
 	-ms-box-shadow: 0 0 2px #ed1c24 inset;
@@ -221,7 +218,7 @@ form:after {
 }
 #username { background-position: 10px 10px !important }
 #password { background-position: 10px -53px !important }
-#content form input[type="submit"] {
+#submit {
 	background: rgb(254,231,154);
 	background: -moz-linear-gradient(top,  rgba(254,231,154,1) 0%, rgba(254,193,81,1) 100%);
 	background: -webkit-linear-gradient(top,  rgba(254,231,154,1) 0%,rgba(254,193,81,1) 100%);
@@ -242,12 +239,13 @@ form:after {
 	border: 1px solid #D69E31;
 	color: #85592e;
 	cursor: pointer;
-	float: right;
+	
 	font: bold 15px Helvetica, Arial, sans-serif;
-	height: 35px;
-	margin: 20px 0 35px 15px;
+	height: 30px;
+	
 	position: relative;
-	bottom:55px;
+	bottom:-8px;
+	left:630px;
 	text-shadow: 0 1px 0 rgba(255,255,255,0.5);
 	width: 120px;
 }
@@ -319,6 +317,7 @@ form:after {
 		font-size: 14px;
 		line-height: 20px;
 		color: #333;
+		height:10px;
 		text-align: center;
 		text-shadow: 0 1px 1px rgba(255,255,255,0.75);
 		vertical-align: middle;
@@ -340,32 +339,9 @@ form:after {
 		-moz-box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
 		box-shadow: inset 0 1px 0 rgba(255,255,255,0.2),0 1px 2px rgba(0,0,0,0.05);
 		position:relative;
+		left:7px;
+		bottom:5px;
 	}
-
-	#content select {
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	-ms-border-radius: 3px;
-	-o-border-radius: 3px;
-	border-radius: 3px;
-	-webkit-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
-	-moz-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
-	-ms-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
-	-o-box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
-	box-shadow: 0 1px 0 #fff, 0 -2px 5px rgba(0,0,0,0.08) inset;
-	-webkit-transition: all 0.5s ease;
-	-moz-transition: all 0.5s ease;
-	-ms-transition: all 0.5s ease;
-	-o-transition: all 0.5s ease;
-	transition: all 0.5s ease;
-	background: #eae7e7;
-	border: 1px solid #c8c8c8;
-	color: #777;
-	font: 13px Helvetica, Arial, sans-serif;
-	margin: 0 0 10px;
-	padding: 15px 10px 15px 10px;
-	width: 20%;
-}
 
 	 #content form input[type=radio]:checked + label, input[type=checkbox]:checked + label{
 		   background-image: none;
@@ -379,10 +355,12 @@ form:after {
 	}
 	
 	
-#header-wrap {
+	
+	#header-wrap {
 	position: fixed;
 	top: 0;
 	width: 100%;
+	z-index:+1;
     /*overflow: auto;*/
 }
 
@@ -439,7 +417,8 @@ form:after {
 	position: fixed;
 	bottom: 0;
 	width: 100%;
-        overflow: auto;
+    overflow: auto;
+	z-index:-1;
 }
 
 #footer-container {

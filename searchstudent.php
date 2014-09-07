@@ -310,7 +310,7 @@ function f2(){
 				<option value="" selected disabled>Branch</option>
 				</select>
 				
-				<select name="subbranch" id="subbranch">
+				<select name="subBranch" id="subbranch">
 				<option value="" selected disabled>Sub Branch</option>
 				</select>
 				

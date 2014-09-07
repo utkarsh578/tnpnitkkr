@@ -125,6 +125,30 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	{
 		$subbranch = "";
 	}
+	if(isset($_POST["address"]))
+	{
+		$address = $_POST["address"];
+	}
+	else
+	{
+		$address = "";
+	}
+	if(isset($_POST["10th"]))
+	{
+		$tenth = $_POST["10th"];
+	}
+	else
+	{
+		$tenth = "";
+	}
+	if(isset($_POST["12th"]))
+	{
+		$twelth = $_POST["12th"];
+	}
+	else
+	{
+		$twelth = "";
+	}
 	$result = mysqli_query($con,"SELECT * FROM studentsData WHERE rollno = $rollno");
 	$count=mysqli_fetch_array($result);
 	if($count['rollno'] == $rollno)
@@ -134,7 +158,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
 	}
 	else{
-	$result = mysqli_query($con,"INSERT INTO studentsData (rollno,name,email,contacts,year,degree,branch,sgpa5,sgpa4,sgpa3,sgpa2,sgpa1,cgpa,subBranch) VALUES ('$rollno','$name','$email','$contacts','$year','$degree','$branch','$sgpa5','$sgpa4','$sgpa3','$sgpa2','$sgpa1','$cgpa','$subbranch')");
+	$result = mysqli_query($con,"INSERT INTO studentsData (rollno,name,email,contacts,year,degree,branch,sgpa5,sgpa4,sgpa3,sgpa2,sgpa1,cgpa,subBranch,address,10th,12th) VALUES ('$rollno','$name','$email','$contacts','$year','$degree','$branch','$sgpa5','$sgpa4','$sgpa3','$sgpa2','$sgpa1','$cgpa','$subbranch','$address','$tenth','$twelth')");
 	if($result)
 	{
 		$_SESSION['message'] = "Student Detail of Roll no ".$rollno." Has Been Added";

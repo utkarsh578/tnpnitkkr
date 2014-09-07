@@ -38,7 +38,7 @@ $result = mysqli_query($con,"SELECT * FROM attendance LEFT  JOIN studentsData ON
 
 </head>
 <body>
-<h1 align="center">NIT KURUSHETRA</h1>
+<h1 align="center">TRAINING & PLACEMENT, NIT KURUSHETRA</h1>
 <h2 align="center">Attendance Report</h2>
 <center><h3>Degree: <?php echo $degree; ?>&nbsp;&nbsp;&nbsp;&nbsp;Branch: <?php echo $branch; ?></h3></center>
 <br>
@@ -48,14 +48,12 @@ $result = mysqli_query($con,"SELECT * FROM attendance LEFT  JOIN studentsData ON
 		<tr>
 			<th>Name</th>
 			<th>Roll No</th>
-			<th>Branch</th>
 			<th>Date</th>
 		</tr>
 		<?php while ($row = mysqli_fetch_array($result)) {
 		echo "<tr>";
 		echo "<td>".$row['name']."</td>";
 		echo "<td>".$row['rollno']."</td>";
-		echo "<td>".$row['branch']."</td>";
 		$totalDays = substr($row['totalDays'], 1);
 		echo "<td>".$totalDays."</td>";
 		echo "</tr>";

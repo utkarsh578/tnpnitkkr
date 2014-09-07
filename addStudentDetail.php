@@ -305,6 +305,12 @@ function f2(){
 			
 				<input type="text" placeholder="Contact"  name="contacts"/>
 			</div>
+			
+			<div>
+				<input type="text" placeholder="Address" name="address"/>
+				<input type="" placeholder="10th %"  name="10th"/>
+				<input type="" placeholder="12th %"  name="12th"/>
+			</div>
 			<br>
 			<div>
 				<select id="year" name="year">

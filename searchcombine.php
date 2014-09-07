@@ -30,7 +30,7 @@ window.print();
 echo "
 <h1 align='center'>NIT KURUSHETRA</h1>
 <h2 align='center'>Placement Report</h2>
-<center><h3>Degree: <?php echo $degree; ?></h3></center>
+<center></center>
 <br>
 <br>
 <br>
@@ -48,14 +48,14 @@ $result = mysqli_query($con,"SELECT * FROM company");
 while($row = mysqli_fetch_array($result)) {
 	echo "<tr><td>".$row['companyName']."</td>";
 	$count=0;
-	$result1= mysqli_query($con,"SELECT count(*) FROM studentsData where companyName".$row['offer']."=".$row['id']." and degree='B.tech'");
+	$result1= mysqli_query($con,"SELECT count(*) FROM studentsData where companyName".$row['offer']."=".$row['id']." and degree='B.Tech'");
 	//echo "SELECT count(*) FROM studentsdata where companyName".$row['offer']."=".$row['id']." and degree='B.tech'";
 	$row1 = mysqli_fetch_array($result1);
 	$count=$row1['count(*)'];
 	echo "<td>".$count."</td>";
 	$countb+=$count;
 	$count=0;
-	$result1= mysqli_query($con,"SELECT count(*) FROM studentsData where companyName".$row['offer']."=".$row['id']." and degree='M.tech'");
+	$result1= mysqli_query($con,"SELECT count(*) FROM studentsData where companyName".$row['offer']."=".$row['id']." and degree='M.Tech'");
 	$row1 = mysqli_fetch_array($result1);
 	$count=$row1['count(*)'];
 	echo "<td>".$count."</td>";
@@ -74,7 +74,21 @@ while($row = mysqli_fetch_array($result)) {
 	echo "<td>".$count."</td>";
 	echo "</tr>";
 }
-echo "<tr><td>Total Placed : </td><td>".$countb."</td><td>".$countm."</td><td>".$countmb."</td><td>".$countmc."</td></tr>";
+echo "<tr><td><b>Total Placed : </b></td><td>".$countb."</td><td>".$countm."</td><td>".$countmb."</td><td>".$countmc."</td></tr>";
+$result = mysqli_query($con,"SELECT count(*) FROM studentsData where degree='B.Tech'");
+$row = mysqli_fetch_array($result);
+$totalb=$row['count(*)'];
+$result = mysqli_query($con,"SELECT count(*) FROM studentsData where degree='M.Tech'");
+$row = mysqli_fetch_array($result);
+$totalm=$row['count(*)'];
+$result = mysqli_query($con,"SELECT count(*) FROM studentsData where degree='MBA'");
+$row = mysqli_fetch_array($result);
+$totalmb=$row['count(*)'];
+$result = mysqli_query($con,"SELECT count(*) FROM studentsData where degree='MCA'");
+$row = mysqli_fetch_array($result);
+$totalmc=$row['count(*)'];
+echo "<tr>";
+echo "<tr><td><b>Total Students : </b></td><td>".$totalb."</td><td>".$totalm."</td><td>".$totalmb."</td><td>".$totalmc."</td></tr>";
 echo "</table><a id='sub' href='#' onclick='f1()'>Print</a></body></html>";
 mysqli_close($con);
 ?>

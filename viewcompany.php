@@ -54,7 +54,7 @@ echo "<html>
 </div>
 
 ";
-echo "<center><table class='tftable'  id='table1' border='5px'>
+echo "<center><table class='tftable' id='table1' border='5px'>
 <thead><tr>";
 echo "<th>Name</th>";
 echo "<th>Package</th>";
@@ -66,6 +66,8 @@ echo "<th>HR Name</th>";
 echo "<th>HR Phone</th>";
 echo "<th>HR Email</th>";
 echo "<th>Students Hired</th>
+<th>Edit</th>
+<th>Del</th>
 </tr>
 </thead>
 <tbody>";
@@ -114,7 +116,7 @@ mysqli_close($con);
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript" src="js/jquery.freezeheader.js"></script>
 <link rel="stylesheet" type="text/css" href="comm.css" />
-<script src="jquery.min.js"></script>
+
 <script src="comm.js"></script>
 
 <script language="javascript" type="text/javascript">
@@ -122,8 +124,6 @@ mysqli_close($con);
         $(document).ready(function () {
             $("#table1").freezeHeader({ 'height': '600px' });
         })
- 
-
 </script>
 <title>Training & Placement</title>
 </head>

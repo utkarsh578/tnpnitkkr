@@ -35,12 +35,15 @@ echo "<input type='hidden' name='id' value='".$row['id']."'></input>";
 echo "<tr><td>Name : </td><td><input type='text' name='name' value='".$row['name']."'></input></td></tr>";
 echo "<tr><td>Roll Number : </td><td><input type='text' name='rollno' value='".$row['rollno']."'></input></td></tr>";
 echo "<tr><td>E-Mail : </td><td><input type='text' name='email' value='".$row['email']."'></input></td></tr>";
+echo "<tr><td>Address : </td><td><input type='text' name='address' value='".$row['address']."'></input></td></tr>";
 echo "<tr><td>Contact Number: </td><td><input type='text' name='contacts' value='".$row['contacts']."'></input></td></tr>";
 echo "<tr><td>Year : </td><td><input type='text' name='year' value='".$row['year']."'></input></td></tr>";
 echo "<tr><td>Degree : </td><td><input type='text' name='degree' value='".$row['degree']."'></input></td></tr>";
 echo "<tr><td>Branch : </td><td><input type='text' name='branch' value='".$row['branch']."'></input></td></tr>";
-if($row['subbranch']!=NULL)
-echo "<tr><td>Sub-Branch : </td><td><input type='text' name='subbranch' value='".$row['subbranch']."'></input></td></tr>";
+if($row['subBranch']!=NULL)
+echo "<tr><td>Sub-Branch : </td><td><input type='text' name='subBranch' value='".$row['subBranch']."'></input></td></tr>";
+echo "<tr><td>10th : </td><td><input type='text' name='tenth' value=".$row['10th']."></input></td></tr>";
+echo "<tr><td>12th : </td><td><input type='text' name='twelth' value=".$row['12th']."></input></td></tr>";
 echo "<tr><td>SGPA1 : </td><td><input type='text' name='sgpa1' value=".$row['sgpa1']."></input></td></tr>";
 echo "<tr><td>SGPA2 : </td><td><input type='text' name='sgpa2' value=".$row['sgpa2']."></input></td></tr>";
 echo "<tr><td>SGPA3 : </td><td><input type='text' name='sgpa3' value=".$row['sgpa3']."></input></td></tr>";
