@@ -80,13 +80,13 @@ $(function() {
 				<input type='radio' id='radio2' name='status' value='dream'><label for='radio2'>Dream</label>
 				<input type='radio' id='radio3' name='status' value='superdream'><label for='radio3'>Super Dream</label>";
 				if($row['offer']==1)
-				echo "<input type='radio' id='radio1' name='status' value='normal' checked><label for='radio1'>Normal</label> 
-				<input type='radio' id='radio2' name='status' value='dream'><label for='radio2'>Dream</label>
+				echo "<input type='radio' id='radio1' name='status' value='normal' ><label for='radio1'>Normal</label> 
+				<input type='radio' id='radio2' name='status' value='dream' checked><label for='radio2'>Dream</label>
 				<input type='radio' id='radio3' name='status' value='superdream'><label for='radio3'>Super Dream</label>";
 				if($row['offer']==2)
-				echo "<input type='radio' id='radio1' name='status' value='normal' checked><label for='radio1'>Normal</label> 
+				echo "<input type='radio' id='radio1' name='status' value='normal'><label for='radio1'>Normal</label> 
 				<input type='radio' id='radio2' name='status' value='dream'><label for='radio2'>Dream</label>
-				<input type='radio' id='radio3' name='status' value='superdream'><label for='radio3'>Super Dream</label>";
+				<input type='radio' id='radio3' name='status' value='superdream'checked><label for='radio3'>Super Dream</label>";
 				?>
 				
 			</div>
