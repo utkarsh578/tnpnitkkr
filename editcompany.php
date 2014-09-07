@@ -94,12 +94,12 @@ $(function() {
 			<br>
 			
 			<div>
-				<input type="text" value=<?php echo "\"".$row['hrName']."\""; ?>  required="" name="hr_name" />
-				<input type="text" value=<?php echo "\"".$row['hrContact']."\""; ?> required name="hr_contact"/>
+				<input type="text" value=<?php echo "\"".$row['hrName']."\""; ?>  name="hr_name" placeholder = "HR Name"/>
+				<input type="text" value=<?php echo "\"".$row['hrContact']."\""; ?> name="hr_contact" placeholder = "HR Contact"/>
 			</div>
 			<div>
-				<input type="text" value=<?php echo "\"".$row['hrEmail']."\""; ?> required name="hr_email"/>
-				<input type="text" value=<?php echo "\"".$row['pacMember']."\""; ?> name="pac_member">
+				<input type="text" value=<?php echo "\"".$row['hrEmail']."\""; ?> name="hr_email" placeholder = "HR Email"/>
+				<input type="text" value=<?php echo "\"".$row['pacMember']."\""; ?> name="pac_member" placeholder = "PAC Member" />
 			</div>
 			<br>
 			<div>

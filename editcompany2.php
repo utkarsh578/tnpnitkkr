@@ -23,7 +23,7 @@ $no_of_days=$_POST['no_of_days'];
 $pac_member=$_POST['pac_member'];
 $hrname=$_POST['hr_name'];
 $hrcontact=$_POST['hr_contact'];
-$hremail=$POST['hr_email'];
+$hremail=$_POST['hr_email'];
 include "db_connect.php";
 $sql="UPDATE company set companyName='".$companyname."' ,ctc='".$package."' ,offer='".$offer."',dateOfVisit='".$date_of_visit."',noOfDays=".$no_of_days.",pacMember='".$pac_member."',hrName='".$hrname."',hrEmail='".$hremail."',hrContact='".$hrcontact."' where id=".$_POST['id'];
 if (!mysqli_query($con,$sql)) {
