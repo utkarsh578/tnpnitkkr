@@ -57,11 +57,11 @@ $name=substr($name,0,$i);
 		<form action="" method="post">
 			<h1>View</h1>
 			<div>
-				<a href="searchmtech.php"><input type="button" value="M.Tech"></input></a>
-				<a href="searchbtech.php"><input type="button" value="B.Tech"></input></a>
-				<a href="searchmca.php"><input type="button" value="MCA"></input></a>
-				<a href="searchmba.php"><input type="button" value="MBA"></input></a>
-				<a href="searchcombine.php"><input style="left:-100px;" type="button" value="View All"></input></a>
+				<a href="searchmtech.php" target="_blank"><input type="button" value="M.Tech"></input></a>
+				<a href="searchbtech.php" target="_blank"><input type="button" value="B.Tech"></input></a>
+				<a href="searchmca.php" target="_blank"><input type="button" value="MCA"></input></a>
+				<a href="searchmba.php" target="_blank"><input type="button" value="MBA"></input></a>
+				<a href="searchcombine.php" target="_blank"><input style="left:-100px;" type="button" value="View All"></input></a>
 			</div>
 		</form><!-- form -->
 		<br><br>
