@@ -36,9 +36,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	$flag = $count['noOfOffers'];
 	$studentId = $count['id'];
 
+
+	$result1 = mysqli_query($con,"SELECT * FROM studentPlaced WHERE studentId = '$studentId' AND companyId = $companyId");
+	$count1=mysqli_fetch_array($result1);
+
 	if(empty($count['id']))
 	{
 		$_SESSION['message'] = "Roll not found in the database, Please Check the database or else re-enter the roll no";
+		header("location:updatePlacementRecord.php");
+	}
+	else if(!empty($count1['id']))
+	{
+		$_SESSION['message'] = "The Student is allready added to the selected company";
 		header("location:updatePlacementRecord.php");
 	}
 	else{

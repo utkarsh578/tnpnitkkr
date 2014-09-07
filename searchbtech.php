@@ -62,7 +62,7 @@ while($row = mysqli_fetch_array($result)) {
 	$count=$row1['count(*)'];
 	echo "<td>".$count."</td>";
 	$count=0;
-	$result1= mysqli_query($con,"SELECT count(*) FROM studentsData where companyName".$row['offer']."=".$row['id']." and degree='B.tech' and branch='ELEC'");
+	$result1= mysqli_query($con,"SELECT count(*) FROM studentsData where companyName".$row['offer']."=".$row['id']." and degree='B.tech' and branch='Electrical'");
 	$row1 = mysqli_fetch_array($result1);
 	$count=$row1['count(*)'];
 	echo "<td>".$count."</td>";

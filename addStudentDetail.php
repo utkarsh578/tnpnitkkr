@@ -115,7 +115,7 @@ function f1(){
     select.add(option8, 8);
 	
 	var option9 = document.createElement('option');
-	option9.text = option9.value = 'School of Material Science & Technology';
+	option9.text = option9.value = 'School of Material Science & Nanotechnology';
     select.add(option9, 9);
 	
 	var option10 = document.createElement('option');
@@ -257,9 +257,9 @@ function f2(){
     select.add(option1, 1);
 	}
 	
-	if(degree == 'School of Material Science & Technology'){
+	if(degree == 'School of Material Science & Nanotechnology'){
 	var option1 = document.createElement('option');
-	option1.text = option1.value = 'Material Science & Technology';
+	option1.text = option1.value = 'Material Science & Nanotechnology';
     select.add(option1, 1);
 	}
 	}

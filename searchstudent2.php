@@ -43,7 +43,7 @@ echo "<tr><td>E-Mail </td><td>".$row['email']."</td></tr>";
 echo "<tr><td>Contact Number: </td><td>".$row['contacts']."</td></tr>";
 echo "<tr><td>Year </td><td>".$row['year']."</td></tr>";
 echo "<tr><td>Degree </td><td>".$row['degree']."</td></tr>";
-echo "<tr><td>Branch </td><td>".$row['name']."</td></tr>";
+echo "<tr><td>Branch </td><td>".$row['branch']."</td></tr>";
 if($row['subbranch']!=NULL)
 echo "<tr><td>Sub-Branch </td><td>".$row['subbranch']."</td></tr>";
 $stat="";
