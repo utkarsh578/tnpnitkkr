@@ -62,8 +62,8 @@ if(isset($_POST['uname']) && isset($_POST['old']) && isset($_POST['new1']) && is
 		<form action="changepassword.php" method="post">
 		<h1>Change Password</h1>
 		<div>
-			<input type="text" name="uname">
-			<input type="password" name="old">
+			<input type="text" name="uname" placeholder="Username">
+			<input type="password" name="old" placeholder="Old Passowrd">
 		</div>
 		<div>
 			<input type="password" placeholder="New Password" name="new1">
