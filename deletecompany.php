@@ -12,7 +12,7 @@ else
 }
 $id=0;
 include "db_connect.php";
-$result = mysqli_query($con,"SELECT count(*) FROM Company");
+$result = mysqli_query($con,"SELECT count(*) FROM company");
 $row = mysqli_fetch_array($result);
 $count=$row['count(*)'];
 for($i=1;$i<=$count;$i++)
@@ -24,7 +24,7 @@ for($i=1;$i<=$count;$i++)
 		break;
 	}
 }
-mysqli_query($con,"DELETE FROM Company where id=".$id);
+mysqli_query($con,"DELETE FROM company where id=".$id);
 mysqli_close($con);
 $_SESSION['action']=2;
 header("location:viewcompany.php");

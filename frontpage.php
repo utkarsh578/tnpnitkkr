@@ -10,7 +10,6 @@ else
 	unset($_SESSION['name']);
 	$_SESSION['name']=$name;
 }
-
 for($i=0;$i<strlen($name);$i++)
 {
 	if($name[$i]==' ')
@@ -48,7 +47,7 @@ $name=substr($name,0,$i);
 			<img id="btn2" src="set.png" width="39px" style="position:absolute; top:27px;  visibility:hidden; right:0px; z-index:+2;" height="39px" onclick='f6()'/>
 			<h2 id="name"><p style="position:absolute; right:5px;top:11px; cursor: default;" ><?php echo $name ?></p></h2>
 			<h2 id="log"><p style="position:absolute; right:15px;top:12px;" ><a id="abc" href="logout.php">Sign Out</a></p></h2>
-			<h2 id="change"><p style="position:absolute; top:3px;" ><a id="abc" href="#">Change&nbsp;&nbsp;<br> Password</a></p></h2>
+			<h2 id="change"><p style="position:absolute; top:3px;" ><a id="abc" href="changepassword.php">Change&nbsp;&nbsp;<br> Password</a></p></h2>
 		</div>
 	</div>
 </div>
