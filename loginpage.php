@@ -36,7 +36,7 @@ if(isset($_POST["username"]) && isset($_POST["password"]))
 	else
 	{
 	//echo "<h1>No sql Injection</h1>";
-	$con=mysqli_connect("localhost","root","evm","nitkkrplacements");
+	$con=mysqli_connect("localhost","root","ansout","nitkkrplacements");
 	if (mysqli_connect_errno()) {
 	header("location:loginpage.php");
 	}
