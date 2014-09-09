@@ -271,7 +271,7 @@ function f2(){
 <?php
 	if (isset($_SESSION['message'])) {
 	echo "
-	<h3 id='hide' style='position:absolute; top:65px; text-align:center; color:white; left:560px; display:block; height:45px; width:240px; background-color:maroon; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;'>
+	<h3 id='hide' style='z-index:+2; position:absolute; top:65px; text-align:center; color:white; left:560px; display:block; height:45px; width:240px; background-color:maroon; border-bottom-left-radius: 10px; border-bottom-right-radius: 10px;'>
 	<p id='hide' style='position:absolute; top:8px;'><center>".$_SESSION['message']."</center></p></h3>";
 	unset($_SESSION['message']);
 	}

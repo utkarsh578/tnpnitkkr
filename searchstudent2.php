@@ -120,7 +120,7 @@ echo "<tr><td>SGPA5 </td><td>".$row['sgpa5']."</td></tr>";
 echo "<tr><td>CGPA </td><td>".$row['cgpa']."</td></tr>";
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
-echo "</table><a href='searchstudent3.php?roll=".$_POST['roll']."'>Edit</a>
+echo "</table><a style='position:absolute; left:500px; font-size:20px; top:100px;' href='searchstudent3.php?roll=".$_POST['roll']."'>Edit</a>
 
 <div id='footer-wrap'>
 	<div id='footer-container'>
