@@ -43,12 +43,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	if(empty($count['id']))
 	{
 		$_SESSION['message'] = "Roll not found in the database, Please Check the database or else re-enter the roll no";
-		header("location:updatePlacementRecord.php");
+		header("location:updatePlacementRecord.php?companyId=".$companyId);
 	}
 	else if(!empty($count1['id']))
 	{
 		$_SESSION['message'] = "The Student is allready added to the selected company";
-		header("location:updatePlacementRecord.php");
+		header("location:updatePlacementRecord.php?companyId=".$companyId);
 	}
 	else{
 		
@@ -69,13 +69,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	if($result)
 	{
 		$_SESSION['message'] = "Successfully you have added <b>".$rollno."</b> to the selected company";
-		header("location:updatePlacementRecord.php");
+		header("location:updatePlacementRecord.php?companyId=".$companyId);
 	}
 	else
 	{
 		echo "failed";
 		$_SESSION['message'] = "Failed";
-		header("location:updatePlacementRecord.php");
+		header("location:updatePlacementRecord.php?companyId=".$companyId);
 	}
 }
 }

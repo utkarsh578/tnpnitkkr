@@ -1,7 +1,18 @@
 <?php
 session_start();
 include 'db_connect.php';
-
+if ($_SERVER["REQUEST_METHOD"] == "GET")
+{
+	if(isset($_GET["companyId"]))
+	{
+		$companyId = $_GET["companyId"];
+		$value = $companyId;
+	}
+	else
+	{
+		$companyId = "";
+	}
+}
 $result = mysqli_query($con,"SELECT * FROM company");
 //$count=mysqli_fetch_array($result);
 
@@ -58,15 +69,15 @@ $name=substr($name,0,$i);
 				<select name="companyId">
 				<option selected disabled>Company Name</option>
 				<?php
-				while ($row = mysqli_fetch_array($result)) {
+					while ($row = mysqli_fetch_array($result)) {
 
-					echo "<option value=".$row['id'].">".$row['companyName']."</option>";
-				}
-					?>
+				echo "<option value=".$row['id']; if($value == $row['id']){echo " selected =".$row['id'].">".$row['companyName']."</option>";}else{ echo ">".$row['companyName']."</option>";}
+					}
+				?>
 				</select>
 			</div>
 			<div>
-				<input type="text" placeholder="Roll No." required name="rollno" />
+				<input type="text" placeholder="Roll No." autofocus="autofocus" required name="rollno" />
 			</div>
 			<div>
 				<input type="submit" value="Submit" />

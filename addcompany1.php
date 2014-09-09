@@ -77,8 +77,8 @@ if(isset($_SESSION['company']))
 		<form action="addcompany2.php" method="post">
 			<h1>Company Details</h1>
 			<div>
-				<input type="text" placeholder="Company Name" required="" name="name" />
-				<input type="text" placeholder="Package" required name="package"/>
+				<input type="text" placeholder="Company Name" name="name" />
+				<input type="text" placeholder="Package"  name="package"/>
 			</div>
 
 			<div>
@@ -89,11 +89,11 @@ if(isset($_SESSION['company']))
 			
 			<br>
 			<div>
-				<input type="text" placeholder="H.R. Name" required="" name="hr_name" />
-				<input type="text" placeholder="H.R. Contact" required name="hr_contact"/>
+				<input type="text" placeholder="H.R. Name"  name="hr_name" />
+				<input type="text" placeholder="H.R. Contact" name="hr_contact"/>
 			</div>
 			<div>
-				<input type="text" placeholder="H.R. Email" required name="hr_email"/>
+				<input type="text" placeholder="H.R. Email"  name="hr_email"/>
 				<input type="text" placeholder="PAC Member" name="pac_member">
 			</div>
 			<br>

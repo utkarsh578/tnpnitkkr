@@ -100,11 +100,11 @@ $(function() {
 			</div>
 			<br>
 			<div>
-				<input type="" placeholder="Date of Visit" id="popupDatepicker" name="date" value=<?php echo $date;?>  required>
+				<input type="" placeholder="Date of Visit" required id="popupDatepicker" name="date" value=<?php echo $date;?> >
 			</div>
 			<br>
 			<div>
-				<input type="text" placeholder="Roll No. 1" required name="rollno1"/>
+				<input type="text" placeholder="Roll No. 1" autofocus="autofocus" required name="rollno1"/>
 				
 				<input type="text" placeholder="Roll No. 2" name="rollno2"/>
 			
