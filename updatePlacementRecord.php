@@ -1,5 +1,15 @@
 <?php
 session_start();
+if(!isset($_SESSION['name']))
+{
+	header("location:loginpage.php");
+}
+else
+{
+	$name=$_SESSION['name'];
+	unset($_SESSION['name']);
+	$_SESSION['name']=$name;
+}
 include 'db_connect.php';
 if ($_SERVER["REQUEST_METHOD"] == "GET")
 {
@@ -16,9 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "GET")
 $result = mysqli_query($con,"SELECT * FROM company");
 //$count=mysqli_fetch_array($result);
 
-$name=$_SESSION['name'];
-	unset($_SESSION['name']);
-	$_SESSION['name']=$name;
 
 for($i=0;$i<strlen($name);$i++)
 {

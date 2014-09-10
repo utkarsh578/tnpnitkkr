@@ -27,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	if(isset($_POST["date"]))
 	{
 		$date = $_POST["date"];
+		$dateCompany = $date;
 	}
 	else
 	{
@@ -60,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		else
 		{
 			$studentId = $count['id'];
-			$result = mysqli_query($con,"SELECT * FROM studentCompanyAttended WHERE studentId = '$studentId' AND companyId = '$companyId'");
+			$result = mysqli_query($con,"SELECT * FROM studentCompanyAttended WHERE studentId = '$studentId' AND companyId = '$companyId' AND dateCompany = '$dateCompany' ");
 			$count = mysqli_fetch_array($result);
 			$found = $_POST["rollno1"];
 		if(empty($count['id'])){
@@ -124,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		else
 		{
 			$studentId = $count['id'];
-			$result = mysqli_query($con,"SELECT * FROM studentCompanyAttended WHERE studentId = '$studentId' AND companyId = '$companyId'");
+			$result = mysqli_query($con,"SELECT * FROM studentCompanyAttended WHERE studentId = '$studentId' AND companyId = '$companyId' AND dateCompany = '$dateCompany' ");
 			$count = mysqli_fetch_array($result);
 			$found = $found."<br>".$_POST["rollno2"];
 		if(empty($count['id'])){
@@ -186,7 +187,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		else
 		{
 			$studentId = $count['id'];
-			$result = mysqli_query($con,"SELECT * FROM studentCompanyAttended WHERE studentId = '$studentId' AND companyId = '$companyId'");
+			$result = mysqli_query($con,"SELECT * FROM studentCompanyAttended WHERE studentId = '$studentId' AND companyId = '$companyId' AND dateCompany = '$dateCompany' ");
 			$count = mysqli_fetch_array($result);
 			$found = $found."<br>".$_POST["rollno3"];
 		if(empty($count['id'])){
@@ -247,7 +248,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		else
 		{
 			$studentId = $count['id'];
-			$result = mysqli_query($con,"SELECT * FROM studentCompanyAttended WHERE studentId = '$studentId' AND companyId = '$companyId'");
+			$result = mysqli_query($con,"SELECT * FROM studentCompanyAttended WHERE studentId = '$studentId' AND companyId = '$companyId' AND dateCompany = '$dateCompany' ");
 			$count = mysqli_fetch_array($result);
 			$found = $found."<br>".$_POST["rollno4"];
 		if(empty($count['id'])){
@@ -308,7 +309,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		else
 		{
 			$studentId = $count['id'];
-			$result = mysqli_query($con,"SELECT * FROM studentCompanyAttended WHERE studentId = '$studentId' AND companyId = '$companyId'");
+			$result = mysqli_query($con,"SELECT * FROM studentCompanyAttended WHERE studentId = '$studentId' AND companyId = '$companyId' AND dateCompany = '$dateCompany' ");
 			$count = mysqli_fetch_array($result);
 			$found = $found."<br>".$_POST["rollno5"];
 		if(empty($count['id'])){

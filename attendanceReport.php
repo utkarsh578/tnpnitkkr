@@ -1,8 +1,15 @@
 <?php
 session_start();
-$name=$_SESSION['name'];
-unset($_SESSION['name']);
-$_SESSION['name']=$name;
+if(!isset($_SESSION['name']))
+{
+	header("location:loginpage.php");
+}
+else
+{
+	$name=$_SESSION['name'];
+	unset($_SESSION['name']);
+	$_SESSION['name']=$name;
+}
 
 for($i=0;$i<strlen($name);$i++)
 {

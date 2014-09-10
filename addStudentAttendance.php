@@ -1,6 +1,15 @@
 <?php
 session_start();
-
+if(!isset($_SESSION['name']))
+{
+	header("location:loginpage.php");
+}
+else
+{
+	$name=$_SESSION['name'];
+	unset($_SESSION['name']);
+	$_SESSION['name']=$name;
+}
 include 'db_connect.php';
 
 
