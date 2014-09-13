@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 		$branch = "";
 	}
 
-$result = mysqli_query($con,"SELECT * FROM attendance LEFT  JOIN studentsData ON attendance.rollno = studentsData.rollno WHERE studentsData.degree = '$degree' AND studentsData.branch = '$branch'");
+$result = mysqli_query($con,"SELECT * FROM attendance LEFT  JOIN studentsData ON attendance.rollno = studentsData.rollno WHERE studentsData.degree = '$degree' AND studentsData.branch = '$branch' ORDER BY studentsData.rollno  ");
 }
 
 ?>

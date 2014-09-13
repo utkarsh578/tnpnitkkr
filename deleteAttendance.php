@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "GET")
 		$companyId = "";
 	}
 
-	$result1 = mysqli_query($con,"SELECT * FROM studentCompanyAttended LEFT JOIN studentsData ON studentCompanyAttended.studentId = studentsData.id WHERE studentCompanyAttended.companyId = '$companyId'");
+	$result1 = mysqli_query($con,"SELECT * FROM studentCompanyAttended LEFT JOIN studentsData ON studentCompanyAttended.studentId = studentsData.id WHERE studentCompanyAttended.companyId = '$companyId' ORDER BY rollno");
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 	
 
 
-	$result1 = mysqli_query($con,"SELECT * FROM studentCompanyAttended LEFT JOIN studentsData ON studentCompanyAttended.studentId = studentsData.id WHERE studentCompanyAttended.companyId = '$companyId'");
+	$result1 = mysqli_query($con,"SELECT * FROM studentCompanyAttended LEFT JOIN studentsData ON studentCompanyAttended.studentId = studentsData.id WHERE studentCompanyAttended.companyId = '$companyId' ORDER BY rollno");
 	
 }
 
