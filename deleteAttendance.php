@@ -62,11 +62,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 <!DOCTYPE html>
 <html>
 <head>
-	<title> Update student placement detail</title>
+	<title> Update student Attendance detail</title>
+	<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.freezeheader.js"></script>
+
 <link rel="stylesheet" type="text/css" href="deleteAttendance.css" />
 <link rel="stylesheet" type="text/css" href="comm.css" />
-<script src="jquery.min.js"></script>
 
+<script language="javascript" type="text/javascript">
+
+        $(document).ready(function () {
+            $("#table1").freezeHeader({ 'height': '300px' });
+        })
+</script>
 
 <style type='text/css'>
 .tftable {position:absolute; top:10px; left:520px;font-size:12px;color:#333333;width:60%;border-width: 1px;border-color: #729ea5;border-collapse: collapse;}
@@ -103,7 +111,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 
 	<section id="content">
 		<form method="post" action="deleteAttendance.php">
-			<h1>Students Placed</h1>
+			<h1>Students Attendance</h1>
 			<div>
 				<select name="companyId" value = <?php echo $value; ?>>
 		<?php

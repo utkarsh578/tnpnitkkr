@@ -296,7 +296,7 @@ function f2(){
 		<form action="addStudentDetailDb.php" method="post">
 			<h1>Student Details</h1>
 			<div>
-				<input type="text" placeholder="Roll No" required name="rollno" />
+				<input type="text" placeholder="Roll No" required name="rollno" autofocus="autofocus"/>
 			
 				<input type="text" placeholder="Name" name="name" required/>
 			</div>

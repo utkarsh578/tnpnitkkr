@@ -49,8 +49,7 @@ body {
 	padding: 0;
 	position: relative;
 	top:110px;
-	overflow-x: hidden;
-    overflow-y: hidden;
+	
 }
 h1{ font-size:28px;}
 h2{ font-size:26px;}

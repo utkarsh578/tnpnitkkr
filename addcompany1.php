@@ -77,7 +77,7 @@ if(isset($_SESSION['company']))
 		<form action="addcompany2.php" method="post">
 			<h1>Company Details</h1>
 			<div>
-				<input type="text" placeholder="Company Name" name="name" />
+				<input type="text" placeholder="Company Name" name="name" autofocus="autofocus" />
 				<input type="text" placeholder="Package"  name="package"/>
 			</div>
 
